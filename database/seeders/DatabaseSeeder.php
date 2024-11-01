@@ -80,6 +80,19 @@ class DatabaseSeeder extends Seeder
             ['name' => 'edit blogs'],
             ['name' => 'delete blogs'],
 
+            ['name' => 'create activities'],
+            ['name' => 'view activities'],
+            ['name' => 'edit activities'],
+            ['name' => 'delete activities'],
+
+            ['name' => 'create banners'],
+            ['name' => 'view banners'],
+            ['name' => 'edit banners'],
+            ['name' => 'delete banners'],
+
+            ['name' => 'view settings'],
+
+
         ];
 
 

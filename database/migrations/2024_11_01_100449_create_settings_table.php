@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->text('logo_image');
-            $table->text('favicon_image');
+            $table->string('site_title');
+            $table->string('tagline');
+            $table->string('meta_description');
+            $table->string('company_email');
+            $table->string('company_address');
+            $table->string('company_phone');
+            $table->text('logo_image')->nullable();
+            $table->text('favicon_image')->nullable();
+            $table->string('footer_credit');
             $table->timestamps();
         });
     }

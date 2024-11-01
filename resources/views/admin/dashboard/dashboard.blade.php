@@ -114,7 +114,7 @@
     <!-- ROW-1 END-->
 
     <!-- ROW-2 -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-sm-12 col-md-12 col-xl-4 col-lg-6">
             <div class="row">
                 <div class="col-lg-12 col-xl-12 col-md-6 col-sm-12">
@@ -288,11 +288,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ROW-2 END -->
 
     <!-- ROW-3 -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-4 col-md-12">
             <div class="card">
                 <div class="card-header border-bottom">
@@ -498,11 +498,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ROW-3 END -->
 
     <!-- ROW-4 -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 col-sm-12">
             <div class="card product-sales-main">
                 <div class="card-header border-bottom">
@@ -738,7 +738,7 @@
                 </div>
             </div>
         </div><!-- COL END -->
-    </div>
+    </div> --}}
     <!-- ROW-4 END -->
 @endsection
 

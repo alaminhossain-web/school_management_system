@@ -18,4 +18,9 @@ class SettingController extends Controller
         Setting::createOrUpdateLogo($request);
         return redirect()->back()->with('success', 'Logo and Favicon updated successfully!');
     }
+    public function general_setting(Request $request)
+    {
+        Setting::createOrUpdateGeneral($request);
+        return redirect()->back()->with('success', 'General Setting updated successfully!');
+    }
 }

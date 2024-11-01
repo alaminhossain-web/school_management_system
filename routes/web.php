@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DressCodeController;
 use App\Http\Controllers\Admin\EventController;
@@ -50,9 +52,13 @@ Route::middleware('auth')->group(function () {
         'why-us'=>WhyUsController::class,
         'about'=>AboutController::class,
         'blog'=>BlogController::class,
+        'activity'=>ActivityController::class,
+        'banner'=>BannerController::class
     ]);
-    Route::get('/setting', [SettingController::class, 'index'])->name('seting');
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('/logo-setting', [SettingController::class, 'logo_setting'])->name('logo.setting');
+    Route::post('/general-setting', [SettingController::class, 'general_setting'])->name('general.setting');
+
 
 });
 

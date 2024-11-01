@@ -54,6 +54,8 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->designation = $request->designation;
+            $user->profile_img = fileUpload($request->file('profile_img'),'user-profile');
             $user->password= Hash::make($request->password);
             $user ->syncRoles($request->role);
             $user->save();
@@ -101,6 +103,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->designation = $request->designation;
+        $user->profile_img = fileUpload($request->file('profile_img'),'user-profile', $user->profile_img);
+
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }

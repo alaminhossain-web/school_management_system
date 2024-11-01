@@ -37,4 +37,19 @@ class Setting extends Model
         self::$data->save();
 
     }
+    public static function createOrUpdateGeneral($request)
+    {
+         // Get the latest Setting record or create a new instance if none exists
+         self::$data = Setting::latest()->first() ?? new Setting();
+
+         self::$data->site_title     = $request->site_title;
+        self::$data->tagline    = $request->tagline;
+        self::$data->meta_description     = $request->meta_description;
+        self::$data->company_email     = $request->company_email;
+        self::$data->company_address     = $request->company_address;
+        self::$data->company_phone     = $request->company_phone;
+        self::$data->footer_credit     = $request->footer_credit;
+        self::$data->save();
+    }
+
 }

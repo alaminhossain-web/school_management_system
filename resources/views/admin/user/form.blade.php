@@ -16,6 +16,21 @@
                     @endif
                     @csrf
                     <div class="row mt-3 ">
+                        <label for="userName" class="col-md-4">Profile Image</label>
+                        <div class="col-md-8">
+                            <input type="file" name="profile_img" id="userName" class="form-control" placeholder="Image" accept="image/*">
+                            @if (isset($user))
+                            <div class="mt-2">
+                                <img src="{{ asset( $user->profile_img)}}" alt="" style="height: 80px">
+                            </div>
+                                
+                            @endif
+                            @error('profile_img')
+                            <p class="mt-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mt-3 ">
                         <label for="userName" class="col-md-4">Name</label>
                         <div class="col-md-8">
                             <input type="text" name="name" id="userName" class="form-control" value="{{ isset($user) ? $user->name :''}}" placeholder="Enter Your Name">
@@ -43,9 +58,20 @@
                             @enderror
                         </div>
                     </div>
-                    
+                    <div class="row mt-3 ">
+                        <label for="userEmail" class="col-md-4">Select Designation</label>
+                        <div class="col-md-8">
+                            <select name="designation" id="" class="form-control">
+                                <option>--Select Designation--</option>
+                                <option value="teacher" {{ isset($user) && $user->designation == 'teacher' ? 'selected' : '' }}>Teacher</option>
+                            </select>
+                            @error('designation')
+                            <p class="mt-1 text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="row mt-3">
-                        <label for="userName" class="col-md-4">Available users</label>
+                        <label for="userName" class="col-md-4">Available roles</label>
                         <div class="col-md-8">
                             <div class="d-flex flex-wrap">
                         @if ($roles->isNotEmpty())
