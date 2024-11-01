@@ -3,10 +3,11 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{ route('dashboard') }}">
-                <img src="{{ asset('/') }}admin/assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                <img src="{{ asset('/') }}admin/assets/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
-                <img src="{{ asset('/') }}admin/assets/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
-                <img src="{{ asset('/') }}admin/assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
+                
+                <img src="{{ isset($setting->logo_image) ? asset($setting->logo_image) :  asset('admin/assets/images/brand/logo.png') }}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{ isset($setting->logo_image) ? asset($setting->logo_image) :  asset('admin/assets/images/brand/logo-1.png') }}" class="header-brand-img toggle-logo" alt="logo">
+                <img src="{{ isset($setting->logo_image) ? asset($setting->logo_image) :  asset('admin/assets/images/brand/logo-2.png') }}" class="header-brand-img light-logo" alt="logo">
+                <img src="{{ isset($setting->logo_image) ? asset($setting->logo_image) :  asset('admin/assets/images/brand/logo-3.png') }}" class="header-brand-img light-logo1" alt="logo">
             </a><!-- LOGO -->
         </div>
         <div class="main-sidemenu">
@@ -119,6 +120,23 @@
                     </ul>
                 </li>
                 @endcan
+                {{-- Blog Module --}}
+                @can('view blogs')
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M19,2H9C7.3438721,2.0018311,6.0018311,3.3438721,6,5v1H5C3.3438721,6.0018311,2.0018311,7.3438721,2,9v10c0.0018311,1.6561279,1.3438721,2.9981689,3,3h10c1.6561279-0.0018311,2.9981689-1.3438721,3-3v-1h1c1.6561279-0.0018311,2.9981689-1.3438721,3-3V5C21.9981689,3.3438721,20.6561279,2.0018311,19,2z M17,19c-0.0014038,1.1040039-0.8959961,1.9985962-2,2H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2v-8h14V19z M17,10H3V9c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V10z M21,15c-0.0014038,1.1040039-0.8959961,1.9985962-2,2h-1V9c-0.0008545-0.7719116-0.3010864-1.4684448-0.7803345-2H21V15z M21,6H7V5c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V6z"/></svg>
+                        <span class="side-menu__label">Blog Module</span><i class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Tables</a></li>
+                        @can('create users')
+                        <li><a href="{{ route('blog.create') }}" class="slide-item">Create</a></li>
+                        @endcan
+                        @can('view users')
+                        <li><a href="{{ route('blog.index') }}" class="slide-item">Manage</a></li>
+                        @endcan
+                    </ul>
+                </li>
+                @endcan
                 {{-- Permission Module --}}
                 @can('view permissions')
                 <li class="slide">
@@ -170,6 +188,7 @@
                     </ul>
                 </li>
                 @endcan
+
                 
                 
                 <li class="slide">

@@ -75,6 +75,11 @@ class DatabaseSeeder extends Seeder
             ['name' => 'edit why-us'],
             ['name' => 'delete why-us'],
 
+            ['name' => 'create blogs'],
+            ['name' => 'view blogs'],
+            ['name' => 'edit blogs'],
+            ['name' => 'delete blogs'],
+
         ];
 
 

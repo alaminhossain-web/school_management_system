@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DressCodeController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\NoticeController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoGalleryController;
 use App\Http\Controllers\Admin\VideoGalleryController;
 use App\Http\Controllers\Admin\WhyUsController;
+use App\Http\Controllers\Setting\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +48,12 @@ Route::middleware('auth')->group(function () {
         'notice'=>NoticeController::class,
         'event'=>EventController::class,
         'why-us'=>WhyUsController::class,
-        'about'=>AboutController::class
+        'about'=>AboutController::class,
+        'blog'=>BlogController::class,
     ]);
+    Route::get('/setting', [SettingController::class, 'index'])->name('seting');
+    Route::post('/logo-setting', [SettingController::class, 'logo_setting'])->name('logo.setting');
+
 });
 
 require __DIR__.'/auth.php';
