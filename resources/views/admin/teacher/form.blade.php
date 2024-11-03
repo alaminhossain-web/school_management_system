@@ -62,7 +62,7 @@
                     <div class="row mt-5">
                         <label for="" class="col-md-4"></label>
                         <div class="col-md-8">
-                            <input type="submit" class="btn btn-info" value="{{isset($user) ? 'Update' :'Create'}} user">
+                            <input type="submit" class="btn btn-info" value="{{isset($user) ? 'Update' :'Create'}} Teacher">
                         </div>
                     </div>
                     </form>

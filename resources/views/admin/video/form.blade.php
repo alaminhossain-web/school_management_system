@@ -4,7 +4,7 @@
 
 @section('body')
     <div class="row py-5">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header bg-light">
                     <h3>{{isset($video) ? 'Edit' :'Create'}} Video</h3>
@@ -43,7 +43,7 @@
                     <div class="row mt-3">
                         <label for="" class="col-md-4"></label>
                         <div class="col-md-8">
-                            <input type="submit" class="btn btn-info" value="{{isset($video) ? 'Update' :'Create'}} video">
+                            <input type="submit" class="btn btn-info" value="{{isset($video) ? 'Update' :'Create'}} Video">
                         </div>
                     </div>
                     </form>

@@ -68,7 +68,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(function(){
-        $('datePicker').datepicker();
+        $('.datePicker').datepicker();
     })
 </script>
 <script>

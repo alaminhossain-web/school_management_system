@@ -4,7 +4,7 @@
 
 @section('body')
     <div class="row py-5">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header bg-light">
                     <h3>{{isset($whyUs) ? 'Edit' :'Create'}} Why Us</h3>

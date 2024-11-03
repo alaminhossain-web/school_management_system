@@ -69,7 +69,7 @@
                     <div class="row mt-3">
                         <label for="" class="col-md-4"></label>
                         <div class="col-md-8">
-                            <input type="submit" class="btn btn-info" value="{{isset($classContent) ? 'Update' :'Create'}} class Category">
+                            <input type="submit" class="btn btn-info" value="{{isset($classContent) ? 'Update' :'Create'}} Class Content">
                         </div>
                     </div>
                     </form>

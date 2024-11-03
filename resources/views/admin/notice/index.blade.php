@@ -16,7 +16,7 @@
                             <tr>
                                 <td>#</td>
                                 <td>Name</td>
-                                <td>Permissions</td>
+                                <td>Decription</td>
                                 <td>Created By</td>
                                 <td>Status</td>
                                 <td>Action</td>
@@ -28,7 +28,7 @@
                                         <td>{{ $loop->iteration }}</td>
                     
                                         <td>{{ $notice->title }}</td>
-                                        <td>  {{ $notice->description}}
+                                        <td>  {!! $notice->description !!}
                                         </td>
                                        
                                         <td>{{ $notice->user->name }}</td>

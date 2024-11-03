@@ -16,7 +16,7 @@
                             <tr>
                                 <td>#</td>
                                 <td>Name</td>
-                                <td>Permissions</td>
+                                <td>Image</td>
                                 <td>Created By</td>
                                 <td>Action</td>
                             </tr>
