@@ -1,16 +1,16 @@
 @extends('admin.master')
 
-@section('title',isset($user) ? 'Edit' :'Create' . 'User')
+@section('title',(isset($user) ? 'Edit' :'Create') . ' Teacher')
 
 @section('body')
     <div class="row py-5">
         <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header bg-light">
-                    <h3>{{isset($user) ? 'Edit' :'Create'}} User</h3>
+                    <h3>{{isset($user) ? 'Edit' :'Create'}} Teacher</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ isset($user) ? route('user.update',$user) : route('user.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ isset($user) ? route('teacher.update',$user) : route('teacher.store') }}" method="post" enctype="multipart/form-data">
                     @if(isset($user))
                         @method('put')
                     @endif
@@ -48,49 +48,17 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <label for="userPassword" class="col-md-4">Password</label>
-                        <div class="col-md-8">
-                            <input type="password" name="password" id="userPassword" class="form-control" placeholder="Enter New Password">
-                            <small class="form-text text-muted">Leave blank to keep the current password.</small>
-                            @error('password')
-                                <p class="mt-1 text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
+                    
                     <div class="row mt-3 ">
-                        <label for="userEmail" class="col-md-4">Select User Type</label>
+                        <label for="userEmail" class="col-md-4">Designation</label>
                         <div class="col-md-8">
-                            <select name="user_type" id="" class="form-control">
-                                <option>--Select Type--</option>
-                                <option value="teacher" {{ isset($user) && $user->user_type == 'teacher' ? 'selected' : '' }}>Teacher</option>
-                            </select>
-                            @error('user_type')
+                            <textarea name="designation" class="form-control" cols="30" rows="5">{{ isset($user) ? $user->designation :''}}</textarea>
+                            @error('designation')
                             <p class="mt-1 text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <label for="userName" class="col-md-4">Available roles</label>
-                        <div class="col-md-8">
-                            <div class="d-flex flex-wrap">
-                        @if ($roles->isNotEmpty())
-                        @foreach ($roles as $data)
-                        <div class="ms-3">
-                            
-                                <input {{ isset($user) ?(($hasRoles->contains($data->id)) ? 'checked' : '') : '' }} type="checkbox" class="rounded" id="role-{{ $data->id }}" name="role[]" value="{{ $data->name }}"> 
-                                <label for="role-{{ $data->id }}">{{ $data->name }}</label>
-                            
-                        </div>
-                        @endforeach
-                        @endif
-                       
-                            </div>
-                            @error('role')
-                            <p class="text-danger mt-1">{{ $message }}</p>
-                        @enderror
-                        </div>
-                    </div>
+                    
                     <div class="row mt-5">
                         <label for="" class="col-md-4"></label>
                         <div class="col-md-8">

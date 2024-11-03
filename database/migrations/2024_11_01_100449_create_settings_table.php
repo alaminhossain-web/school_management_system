@@ -13,15 +13,21 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('site_title');
-            $table->string('tagline');
-            $table->string('meta_description');
-            $table->string('company_email');
-            $table->string('company_address');
-            $table->string('company_phone');
+            $table->string('site_title')->nullable();
+            $table->string('tagline')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('company_email')->nullable();
+            $table->string('company_address')->nullable();
+            $table->string('company_phone')->nullable();
             $table->text('logo_image')->nullable();
             $table->text('favicon_image')->nullable();
-            $table->string('footer_credit');
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('whatsapp_number')->nullable();
+            $table->text('chairman_image')->nullable();
+            $table->string('chairman_name')->nullable();
+            $table->string('chairman_message')->nullable();
+            $table->string('footer_credit')->nullable();
             $table->timestamps();
         });
     }

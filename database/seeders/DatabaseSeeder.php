@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $role =Role::create(['name' => 'super-admin']);
+        $superAdminRole =Role::create(['name' => 'super-admin']);
+        $teacherRole = Role::create(['name' => 'teacher']);
+
 
         $permission_data = [
             ['name' => 'create users'],
@@ -54,6 +56,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'view photo-galleries'],
             ['name' => 'edit photo-galleries'],
             ['name' => 'delete photo-galleries'],
+
 
             ['name' => 'create notices'],
             ['name' => 'view notices'],
@@ -92,21 +95,51 @@ class DatabaseSeeder extends Seeder
 
             ['name' => 'view settings'],
 
+            ['name' => 'view teachers'],
+
+            ['name' => 'create classCategories'],
+            ['name' => 'view classCategories'],
+            ['name' => 'edit classCategories'],
+            ['name' => 'delete classCategories'],
+
+            ['name' => 'create classContents'],
+            ['name' => 'view classContents'],
+            ['name' => 'edit classContents'],
+            ['name' => 'delete classContents'],
+
+
 
         ];
 
 
         foreach ($permission_data as $data) {
-            $permission = Permission::create($data);
+            Permission::create($data);
         }
 
-        $role->syncPermissions(Permission::all());
+        $superAdminRole->syncPermissions(Permission::all());
+        
+           // Define permissions specific to the teacher role
+        $teacherPermissions = [
+            'view classCategories',    
+            'view classContents',
+            'view blogs',
+            'view notices',
+            'view events'
+        ];
+
+        // Assign only specific permissions to the teacher role
+        $teacherRole->syncPermissions($teacherPermissions);
+
 
         User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@example.com',
             'password' => Hash::make('1234'),
         ])->assignRole('super-admin');
+         // Create 5 teacher users with the teacher role
+         User::factory()->count(5)->create()->each(function ($user) use ($teacherRole) {
+            $user->assignRole($teacherRole);
+        });
 
     }
 }

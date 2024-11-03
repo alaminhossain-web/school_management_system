@@ -4,9 +4,12 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ClassCategoryController;
+use App\Http\Controllers\Admin\ClassContentController;
 use App\Http\Controllers\Admin\DressCodeController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\NoticeController;
+use App\Http\Controllers\Admin\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
@@ -53,11 +56,17 @@ Route::middleware('auth')->group(function () {
         'about'=>AboutController::class,
         'blog'=>BlogController::class,
         'activity'=>ActivityController::class,
-        'banner'=>BannerController::class
+        'banner'=>BannerController::class,
+        'class-category'=>ClassCategoryController::class,
+        'class' =>ClassContentController::class,
+        'teacher'=>TeacherController::class,
     ]);
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('/logo-setting', [SettingController::class, 'logo_setting'])->name('logo.setting');
     Route::post('/general-setting', [SettingController::class, 'general_setting'])->name('general.setting');
+    Route::post('/chairman-setting', [SettingController::class, 'chairman_setting'])->name('chairman.setting');
+    Route::post('/social-setting', [SettingController::class, 'social_setting'])->name('social.setting');
+
 
 
 });

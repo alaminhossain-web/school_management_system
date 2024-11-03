@@ -51,5 +51,31 @@ class Setting extends Model
         self::$data->footer_credit     = $request->footer_credit;
         self::$data->save();
     }
+    public static function createOrUpdateChairman($request)
+    {
+         // Get the latest Setting record or create a new instance if none exists
+         self::$data = Setting::latest()->first() ?? new Setting();
+        // Image Upload
+        if ($request->hasFile('chairman_image')) {
+            self::$data->chairman_image = fileUpload(
+                $request->file('chairman_image'), 
+                'chairman', 
+                self::$data->logo_image ?? null
+            );
+        }
+        self::$data->chairman_name       = $request->chairman_name;
+        self::$data->chairman_message    = $request->chairman_message;
+        self::$data->save();
+    }
+    public static function createOrUpdateSocial($request)
+    {
+         // Get the latest Setting record or create a new instance if none exists
+         self::$data = Setting::latest()->first() ?? new Setting();
+
+         self::$data->facebook     = $request->facebook;
+        self::$data->youtube    = $request->youtube;
+        self::$data->whatsapp_number     = $request->whatsapp_number;
+        self::$data->save();
+    }
 
 }

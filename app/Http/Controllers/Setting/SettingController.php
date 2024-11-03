@@ -23,4 +23,14 @@ class SettingController extends Controller
         Setting::createOrUpdateGeneral($request);
         return redirect()->back()->with('success', 'General Setting updated successfully!');
     }
+    public function chairman_setting(Request $request)
+    {
+        Setting::createOrUpdateChairman($request);
+        return redirect()->back()->with('success', 'Chairman Setting updated successfully!');
+    }
+    public function social_setting(Request $request)
+    {
+        Setting::createOrUpdateSocial($request);
+        return redirect()->back()->with('success', 'Social Setting updated successfully!');
+    }
 }

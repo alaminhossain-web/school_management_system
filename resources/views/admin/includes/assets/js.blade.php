@@ -52,7 +52,8 @@
 <script src="{{ asset('/') }}admin/assets/plugins/summernote-editor/summernote1.js"></script>
 <script src="{{ asset('/') }}admin/assets/js/summernote.js"></script>
 <script src="{{ asset('/') }}admin/assets/plugins/date-picker/jquery-ui.js"></script>
-
+<!-- bootstrap-datepicker js (Date picker Style-01) -->
+<script src="{{ asset('/') }}admin/assets/plugins/bootstrap-datepicker/js/datepicker.js"></script>
 <!-- COLOR THEME JS -->
 <script src="{{ asset('/') }}admin/assets/js/themeColors.js"></script>
 
@@ -65,6 +66,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <!-- sweet alert 2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(function(){
+        $('datePicker').datepicker();
+    })
+</script>
 <script>
     $(document).on('click', '.delete-item', function() {
          event.preventDefault();

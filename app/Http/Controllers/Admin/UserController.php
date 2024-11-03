@@ -54,7 +54,7 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->designation = $request->designation;
+            $user->user_type = $request->user_type;
             $user->profile_img = fileUpload($request->file('profile_img'),'user-profile');
             $user->password= Hash::make($request->password);
             $user ->syncRoles($request->role);
@@ -103,7 +103,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->designation = $request->designation;
+        $user->user_type = $request->user_type;
         $user->profile_img = fileUpload($request->file('profile_img'),'user-profile', $user->profile_img);
 
         if ($request->filled('password')) {
@@ -123,18 +123,11 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::find($id);
-        // if($user == null)
-        // {
-        //     return response()->json([
-        //         'status' => false
-        //     ]);
-        // }
+        if(file_exists($user->image))
+        {
+            unlink($user->image);
+        }
         $user->delete();
-        // toastr()->error('User Deleted successfully!');
-
-        // return response()->json([
-        //     'status'=>true
-        // ]);
         return back()->with('error','User Deleted successfully!');
 
     }

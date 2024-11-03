@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('class_contents', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('class_category_id');
             $table->string('title');
+            $table->text('image')->nullable();
             $table->text('description');
-            $table->text('image');
-            $table->string('start_date');
-            $table->string('end_date');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->tinyInteger('status');
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('class_contents');
     }
 };

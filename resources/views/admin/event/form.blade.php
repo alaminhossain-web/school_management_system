@@ -47,13 +47,13 @@
                     <div class="row mt-3">
                         <label for="" class="col-md-4">Start Date</label>
                         <div class="col-md-8">
-                            <input type="date" name="start_date" class="form-control" value="{{ isset($event) ? $event->start_date :''}}" placeholder="Title">
+                            <input type="text"  name="start_date" class="form-control datePicker" value="{{ isset($event) ? $event->start_date :''}}" placeholder="Start Date">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <label for="" class="col-md-4">End Date</label>
                         <div class="col-md-8">
-                            <input type="date" name="end_date" class="form-control" value="{{ isset($event) ? $event->end_date :''}}" placeholder="Title">
+                            <input type="text"  name="end_date" class="form-control datePicker" value="{{ isset($event) ? $event->end_date :''}}" placeholder="End Date">
                         </div>
                     </div>
                     <div class="row mt-3">
